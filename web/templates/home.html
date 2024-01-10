@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="id">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
+        href="style.css">
+    <link rel="stylesheet" text="text/css" href="{% static 'css/style.css' %}">
+
+<body>
+    <style>
+        #contactsaya img {
+            padding: 5px;
+            margin: 0;
+            margin: 0;
+        }
+
+        #contactsaya {
+            position: sticky;
+            text-align: center;
+            display: inline-block;
+        }
+
+
+        .nav-item .username {
+            color: white;
+        }
+
+        span .username {
+            color: white;
+        }
+
+        .footer {
+            background: rgb(33, 37, 41);
+        }
+
+        @media (max-width:991px) {
+            header {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width:768px) {
+            #menu-bar {
+                display: initial;
+            }
+
+            header .navbar {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                background: #747d8c;
+                border-top: .1rem solid rgba(255, 255, 255, .2);
+                padding: 1rem 1rem;
+            }
+
+            header .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            }
+
+        }
+
+        header .navbar a {
+            display: block;
+            border-radius: .5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #222;
+        }
+
+        .box .follow {
+            color: white;
+        }
+
+        @media (max-width:450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .heading span {
+                font-size: 2.5rem;
+            }
+
+            .contact .row form .inputBox input {
+                width: 100%;
+            }
+
+            #contactsaya img {
+                width: 30%;
+            }
+        }
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-lg  bg-dark fixed-top py-1">
+            <div class="container">
+                <img class="logo" src="{% static 'images/mino.png' %}" alt="">
+                <a href="#" class="navbar-brand bg-dark"><span>Mino</span>tour</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon bg-body-tertiary"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link pe-4 bg-dark">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#packages" class="nav-link pe-4 bg-dark">packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link pe-4 bg-dark">service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#gallery" class="nav-link pe-4 bg-dark">gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#review" class="nav-link pe-4 bg-dark">review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link pe-4 bg-dark">contact</a>
+                        </li>
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                            <span class="username" class=".fs-4 text"> Hi {{ user.username }} </span>
+                        <li class="nav-item">
+                            <a href="/signout" class="nav-link pe-4 bg-dark">Logout</a>
+                            {% else %}
+                        </li>
+                        <li class="nav-item">
+                            <a href="/signin" class="nav-link pe-4 bg-dark">Login</a>
+                            {% endif %}
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+    </header>
+    <div class="login-form-container">
+    </div>
+    <section class="home" id="home">
+        <div class="content">
+            <h3 class="shadow">minotour Travel</h3>
+            <p>Jalan Jalan Tanpa Beban</p>
+        </div>
+        <div class="img-container">
+            <img id="img-slider" src="{% static 'images/Proyek Baru 421 [3628A42].png' %}">
+        </div>
+    </section>
+    <section class="packages" id="packages">
+        <h1 class="heading">
+            <span>p</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="{% static 'images/bandung.jpeg' %}" alt="p-1">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i>Bandung</h3>
+                    <p>Bandung itu termasuk kota wisata yang nan indah.Bandung tidaklah hanya sebuah kota
+                        biasa,melainkan kota yang memiliki arti
+                        dan makna dibalik keindahan kota tersebut!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <a class="btn btn-dark" href="viewbndung.html" role="button">View More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/jogja.jpg' %}" alt="p-2">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>Jogja</h3>
+                    <p>Kota Jogja termasuk kota Istimewa,Kota Jogja terdapat banyaknya hal-hal yang
+                        membuat kita untuk mengingat masa kecil dan menemukan kebahagiaan
+                    </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a class="btn btn-dark" href="viewjogja.html" role="button">View More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/malang.jpg' %}" alt="p-3">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>Malang</h3>
+                    <p>Malang mengingatkanku dengan terkenalnya dengan
+                        rumah warna warninya yang indah dan terstruktur hingga sebagai tempat impian dan harapan bertemu
+                    </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a class="btn btn-dark" href="viewmalang.html" role="button">View More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/jakarta1.jpg' %}" alt="p-4">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>Jakarta</h3>
+                    <p>Jakarta, kotanya para pahlawan, kotanya seni dan budaya, kotanya kuliner, kotanya belanja,
+                        kotanya hiburan, kotanya kerja, kotanya harapan, kotanya masa depan</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a class="btn btn-dark" href="viewjkrta.html" role="button">View More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/bali.jpg' %}" alt="p-5">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>Bali</h3>
+                    <p>Bali, lebih dari sekadar tujuan liburan,
+                        Ia adalah pengalaman yang mendalam, yang meresapi jiwa kita.
+                        Pulau yang terus bersemi, dalam keindahan yang tak terkira</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a class="btn btn-dark " href="viewbali.html" role="button">View More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/cirebon.jpeg' %}" alt="p-6">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>Cirebon</h3>
+                    <p>Cirebon, kota bersejarah di pesisir utara Jawa,
+                        Tempat di mana budaya, sejarah, dan seni tumbuh dan berbunga.
+                        Dengan sapaan mesra <br>"Kasepuhan"</br></p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a class="btn btn-dark" href="viewcrbon.html" role="button">View More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <h1 class="heading">
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-hotel"></i>
+                <h3>Makanan Sesuai Paket</h3>
+                <p>Makanan Sesuai Paket ini sesuai pelanggan untuk memilih menu makanan yang sesuai dengan kebutuhan dan
+                    anggaran mereka</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-untensils"></i>
+                <h3>Snack Pemberangkatan</h3>
+                <p>Snack Pemberangkatan akan diberikan sebelum keberangkatan</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Doorprize</h3>
+                <p>Hadiah Doorprize dipilih secara acak melalui pengundian ataupun mengikuti lomba yang telah disiapkan
+                    panitia acara</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>Free Voucer Oleh - Oleh</h3>
+                <p>Voucer ini dapat digunakan untuk membeli oleh-oleh di tempat tujuan wisata dan diberikan kepada
+                    wisatawan yang memesan paket wisata tertentu.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe-asia"></i>
+                <h3>Dokumentasi (Album/CD)</h3>
+                <p>Dokumentasi digunakan untuk menjelaskan tour itinerary yang telah dibuat,
+                    sehingga pelanggan dapat memahami apa yang mereka akan lakukan selama Perjalanan</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-plane"></i>
+                <h3>P3K (Healty Care)</h3>
+                <p>P3K (Healty Care) Dapat Digunakan apabila ada seseorang yang membutuhkan keadaan darurat, P3K yang
+                    kami siapkan meliputi obat-obatan, dan lainnya
+                </p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>Tour Leader</h3>
+                <p>Tour Leader ini berfungsi untuk memastikan bahwa semua kebutuhan pelanggan telah terpenuhi sehingga
+                    dapat menjaga
+                    kenyamanan dan keamanan selama Perjalanan.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>Free Spanduk Acara</h3>
+                <p>Spanduk Acara ini biasanya berisi informasi tentang acara yang diadakan, dan digunakan untuk foto
+                    bersama, untuk desain bisa request dan dibantu mendesain dari tim Minotour</p>
+            </div>
+        </div>
+    </section>
+    <section class="gallery" id="gallery">
+        <h1 class="heading">
+            <span>g</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="{% static 'images/geologi.jpg' %}" alt="g-1">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/jatim.park.jpeg' %}" alt="g-2">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/prambanan.jpg' %}" alt="g-3">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/kotu.jpg' %}" alt="g-4">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/bali.jpeg' %}" alt="g-5">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/crbon.jpg' %}" alt="g-6">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/dieng.jpeg' %}" alt="g-7">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/brmo.jpeg' %}" alt="g-8">
+            </div>
+            <div class="box">
+                <img src="{% static 'images/asia.jpg' %}" alt="g-9">
+            </div>
+        </div>
+    </section>
+    <section class="review" id="review">
+        <h1 class="heading">
+            <span>r</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+        <div class="swiper-container review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="{% static 'images/chn7.jpg' %}" alt="pic1">
+                        <h3> <b>Muhamad Chandra Darmawan</b> <br>(Front-End) </h3>
+                        <p> <b>Mino</b> tour&travel adalah sebuah biro penyedia jasa yang bergerak dalam bidang
+                            pelayanan pariwisata.
+                            Saya sangat puas dengan layanan <b>Mino</b> tour&travel. Perjalanan saya ke <b>Bandung</b>
+                            berjalan dengan lancar dan sesuai dengan jadwal yang telah ditentukan.
+                            Transportasi yang disediakan nyaman dan bersih, akomodasi yang disediakan sesuai dengan
+                            harga, dan makanan yang disediakan enak.
+                            Pemandu wisata yang disediakan juga sangat kreatif, informatif dan ramah. Saya akan sangat
+                            merekomendasikan <b>Mino</b> Tour & Travel ini kepada teman-teman saya. </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="{% static 'images/rivan.jpg' %}" alt="pic2">
+                        <h3><b>Rivan Ardi Nugroho</b> <br>(Front-End)</h3>
+                        <p>Saya merekomendasikan minotour untuk menemani liburan anda. karena saya sangat puas dengan
+                            pelayanan dari travel minotour.
+                            Semuanya berjalan dengan lancar dan sesuai dengan rencana. Petugas travel <b>Mino</b> Tour
+                            juga sangat ramah dan membantu.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="{% static 'images/ferdi.jpg' %}" alt="pic3">
+                        <h3> <b>Ferdiansyah Ibnu Hafizh</b> <br>(Back-End) </h3>
+                        <p>Saya merekomendasikan <b>Mino</b> tour&travel untuk menemani liburan anda.
+                            Paket-paket nya yang lengkap beserta pelayanannya yang baik membuat kesan liburan saya
+                            menjadi begitu berkesan.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="{% static 'images/jauza.jpg' %}" alt="pic4">
+                        <h3><b>Jauza Prasta Rafadio</b> <br>(Back-End)</h3>
+                        <p>saya pribadi sangat merekomendasikan travel dari <b>Mino</b>tour ini untuk menemani waktu
+                            liburan anda yang dimana Benefit dan Paket-paket yang disediakan oleh pihak <b>Mino</b>tour
+                            ini sangat bagus,
+                            apalagi tentang pelayanan dari vendor ini yang dimana sangat di berikan kenyamanan dan
+                            privasi tapi juga sangat fleksibel, perihal tersebut membuat saya menyetujui dan menjadikan
+                            <b>Mino</b>tour sebagai partner liburan saya.
+                        </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="{% static 'images/bagas.jpg' %}" alt="pic4">
+                        <h3><b>Bagas Pramudya </b> <br>(Back-End)</h3>
+                        <p>Saya sangat merekomendasikan untuk Travel dengan MinoTour. Karena di Travel ini sangat bagus
+                            dan paketannya sangat murah meriah untuk di kalangan Masyarakat.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+            <br>
+            <br>
+            <span>m</span>
+            <span>e</span>
+        </h1>
+    </section>
+    <section id="contactsaya" class="contactsaya">
+        <div class="logo">
+            <a href="tel:+62812-1996-0907">
+                <img src="{% static 'images/wa.jpg' %}" alt="Wa" class="contact-icon" width="15%">
+                <span class="contact-desktop"></span>
+            </a>
+        </div>
+        <div>
+            <a href="mailto:muhamadchandra.d19@gmail.com">
+                <img src="{% static 'images/gmail3.jpg' %}" class="contact-icon" width="15%">
+                <span class="contact-desktop"></span>
+            </a>
+        </div>
+        <div>
+            <a href="https://instagram.com/minotour_travel?igshid=MzRlODBiNWFlZA==">
+                <img src="{% static 'images/instagram2.png' %}" alt="in.png" class="contact-icon" width="15%">
+                <span class="contact-desktop"></span>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.youtube.com/@minotourtravel8210">
+                <img src="{% static 'images/yt.png' %}" alt="in.png" class="contact-icon" width="15%">
+                <span class="contact-desktop"></span>
+            </a>
+        </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Tentang Kami</h3>
+                <p>kami adalah <b>Mino</b> Tour&Travel.
+                    Kami Merupakan biro penyedia jasa yang bergerak dalam bidang pelayanan Pariwisata. Kami menawarkan
+                    beberapa
+                    tempat atau obyek wisata yang menarik. Kami beralamatkan Desa Wanajaya,Kec.Cibitung - Kab.Bekasi</p>
+            </div>
+            <div class="box">
+                <h3>Lokasi Tujuan </h3>
+                <a href="viewbndung.html">Bandung</a>
+                <a href="viewjogja.html">jogja</a>
+                <a href="viewmalang.html">Malang</a>
+                <a href="viewjkrta.html">Jakarta</a>
+                <a href="viewbali.html">Bali</a>
+                <a href="viewcrbon.html">Cirebon</a>
+            </div>
+            <div class="box">
+                <h3>Links</h3>
+                <a href="#home">home</a>
+                <a href="#book">book</a>
+                <a href="#packages">packages</a>
+                <a href="#services">services</a>
+                <a href="#gallery">gallery</a>
+                <a href="#review">review</a>
+                <a href="#contact">contact</a>
+            </div>
+        </div>
+        <!-- <div class="box">
+            <h3 class="follow">follow us</h3>
+            <div>
+                <a href="https://instagram.com/minotour_travel?igshid=MzRlODBiNWFlZA==">Instagram</a>
+                <a href="https://www.youtube.com/@minotourtravel8210">youtube</a> -->
+    </section>
+
+    <script src="project.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

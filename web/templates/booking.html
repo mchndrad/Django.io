@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylebook.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Booking Form</title>
+</head>
+
+
+<body class="main_bg">
+    <div class="form">
+        <div class="form-text">
+            <h1><span><img src="{% static 'images/art-1.png' %}" alt=""></span>Booking Now<span><img
+                        src="{% static 'images/art-1.png' %}" alt=""></span></h1>
+            <p>Ayo liburan akhir tahun bosku, mumpung ada paket menarik nih dari “Minotour Travel” untuk mengunjungi
+                berbagai macam destinasi wisata yang unik dan estetik di seluruh indonesia. Booking tiketnya
+                sekarang
+                juga dan nikmati keseruan yang tiada tara!.</p>
+        </div>
+        <div class="main-form">
+            <form action="{% url 'booking' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <span>Nama Lengkap ?</span>
+                    <input type="text" name="nama" id="name" placeholder="Write your name here..." required>
+                </div>
+                <div>
+                    <span>Email ?</span>
+                    <input type="email" name="email" id="name" placeholder="Write your email here..." required>
+                </div>
+                <div>
+                    <span>Nomor Handphone ?</span>
+                    <input type="number" name="handphone" id="number" placeholder="Write your number here..." required>
+                </div>
+                <div class="form-field">
+                    <span>Kota Tujuan ?</span>
+                    <select name="kota_tujuan" id="#">
+                        <option value="Bandung">Bandung</option>
+                        <option value="Yogyakarta">Yogyakarta</option>
+                        <option value="Malang">Malang</option>
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Cirebon">Cirebon</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <span>Pemilihan Paket ?</span>
+                    <select name="pemilihan_paket" id="#">
+                        <option value="PAKET STUDY TOUR">PAKET STUDY TOUR</option>
+                        <option value="PAKET PERPISAHAN">PAKET PERPISAHAN</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <span>PAKET ?</span>
+                    <select name="paket" id="#">
+                        <option value="PAKET A">PAKET A</option>
+                        <option value="PAKET B">PAKET B</option>
+                        <option value="PAKET C">PAKET C</option>
+                    </select>
+                </div>
+                <div>
+                    <span>Tanggal Keberangkatan ?</span>
+                    <input type="date" name="tanggal_keberangkatan" id="date" placeholder="date" required>
+                </div>
+                <div>
+                    <span>Lokasi Anda ?</span>
+                    <input type="text" name="lokasi_anda" id="time" placeholder="Write your location here..." required>
+                </div>
+                <div id="submit">
+                    <input type="hidden" name="phone" value="6281219960907">
+                    <input type="hidden" name="text"
+                        value="*Nama Lengkap* :%0ANama :%0A*Nomor Handphone* :%0ANomor Handphone :%0A*Email* :%0AEmail :%0A*Kota Tujuan* :%0AKota Tujuan :%0A*Pemilihan Paket* :%0APaket :%0A*Rencana Tanggal Keberangkatan* :%0ATanggal :%0A*Lokasi Anda* :%0ALokasi :%0A">
+                    <input type="submit" value="Kirim ke WhatsApp" id="submit" onclick="openWhatsApp()">
+                    <a href="tel:+62812-1996-0907"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <script>
+        function openWhatsApp() {
+            // Ambil nilai formulir
+            var namaLengkap = document.getElementsByName('nama')[0].value;
+            var Email = document.getElementsByName('email')[0].value;
+            var nomorHandphone = document.getElementsByName('handphone')[0].value;
+            var kotaTujuan = document.getElementsByName('kota_tujuan')[0].value;
+            var pemilihanPaket = document.getElementsByName('pemilihan_paket')[0].value;
+            var paket = document.getElementsByName('paket')[0].value;
+            var tanggalKeberangkatan = document.getElementsByName('tanggal_keberangkatan')[0].value;
+            var lokasiAnda = document.getElementsByName('lokasi_anda')[0].value;
+
+            // Format pesan sesuai kebutuhan
+            var pesan = "Halo, saya " + namaLengkap + ". Email saya " + Email + ". Saya tertarik untuk melakukan pemesanan.";
+
+            // Ubah nomor handphone sesuai dengan format internasional (gunakan country code)
+            var nomorWhatsApp = "6281219960907";  // Ganti dengan nomor handphone tujuan
+
+            // Buat URL WhatsApp dengan parameter pesan
+            var urlWhatsApp = "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
+
+            // Buka WhatsApp menggunakan window.open
+            window.open(urlWhatsApp);
+        }
+    </script>
+</body>
+
+
+</html>

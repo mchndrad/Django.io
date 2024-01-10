@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
+    href="style.css">
+  {% load static %}
+</head>
+
+<body>
+  <h1 class="text-center pt-3">PAKET KE BALI </h1>
+  <section id="project">
+    <div class="container text-white">
+      <div class="row text-center">
+        <div class="col">
+          <h2>Projects</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-3 ">
+          <div class="card">
+            <img src="{% static 'images/pndwa.jpg' %}" class="card-img-top" alt="Yori">
+            <div class="card-body ">
+              <h3 class="card-title text-center">Paket A</h3>
+              <h5>Bali (6 hari) </h5>
+              <p class="card-text">
+              <ol>
+                <li>Bus seat 48/45(2-2)</li>
+                <li>Makan 13x</li>
+                <li>Makan 1x di Jimbaran</li>
+                <li>Hotel 3 Malam</li>
+                <li>Pilihan wisata: Tanah Lot, Bedugul, Pantai Pandawa, Pura Uluwatu, GWK
+                </li>
+                <li>Pemberangkatan Siang</li>
+              </ol>
+              * Wisata Non Nusa Penida </p>
+              <a href="booking.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{% static 'images/pnida.jpg' %}" class="card-img-top" alt="Yori">
+            <div class="card-body">
+              <h3 class="card-title text-center">Paket B</h3>
+              <h5>Bali (6 hari) </h5>
+              <p class="card-text">
+              <ol>
+                <li>Bus seat 48/45(2-2)</li>
+                <li>Makan 13x</li>
+                <li>Makan 1x di Jimbaran</li>
+                <li>Hotel 3 Malam</li>
+                <li>Pilihan wisata: Bedugul, Pantai Pandawa, Pura Uluwatu, GWK,
+                  Nusa Penida
+                </li>
+                <li>Pemberangkatan Siang</li>
+              </ol>
+              * Wisata Nusa Penida</p>
+              <a href="booking.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+        <br><br><br>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
